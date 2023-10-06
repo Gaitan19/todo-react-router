@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { alertMessage } from '../Alert';
 
 const contextTodo = createContext();
 
@@ -23,21 +22,19 @@ const TodoContext = (props) => {
       router(routes.todo);
     } else {
       if (location.pathname === routes.signUp) {
-        // alertMessage.success(location.pathname)
 
         setTimeout(() => {
 
           router(routes.signUp);
-        }, 1000);
+        }, 500);
 
       } else {
 
-        // alertMessage.success(location.pathname)
 
         setTimeout(() => {
 
           router(routes.login);
-        }, 1000);
+        }, 500);
         
       }
     }

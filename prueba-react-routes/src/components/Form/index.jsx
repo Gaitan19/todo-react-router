@@ -8,13 +8,7 @@ const Form = (props) => {
   return (
     <form className="d-flex justify-content-center" onSubmit={onSubmit}>
       <div className={customClass}>
-        {/* <Image
-          width={112}
-          height={79}
-          src={imageUrl}
-          alt={imageDescription}
-          priority
-        /> */}
+       
         <img
         src={imageUrl}
         alt={imageDescription}

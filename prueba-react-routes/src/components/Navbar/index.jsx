@@ -24,7 +24,7 @@ const Navbar = (props) => {
         setTimeout(() => {
           
           router(routes.login);
-        }, 2000);
+        }, 500);
         
       } else {
         alertMessage.error('Log Out unsuccess');

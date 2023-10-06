@@ -50,7 +50,7 @@ const LoginC = (props) => {
         setTimeout(() => {
 
           router(routes.todo);
-        }, 2000);
+        }, 500);
 
       } else {
 
