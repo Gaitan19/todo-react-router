@@ -20,7 +20,12 @@ const Navbar = (props) => {
       if (status === 200) {
         alertMessage.success('Log Out successfully');
         setUser({});
-        router(routes.login);
+
+        setTimeout(() => {
+          
+          router(routes.login);
+        }, 2000);
+        
       } else {
         alertMessage.error('Log Out unsuccess');
       }

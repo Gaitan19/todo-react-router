@@ -1,3 +1,12 @@
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    justify-content: center;
+    padding: 0 0 50px 0;
+}
+
 .Format {
     &-title {
         color: $midnight-blue;
@@ -33,7 +42,7 @@
         text-decoration: underline;
     }
 
-    &-link{
+    &-link {
         color: $bright-orange;
         font-size: 12px;
         text-align: center;

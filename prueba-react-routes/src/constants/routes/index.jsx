@@ -1,6 +1,6 @@
 const routes = {
   login: '/login',
-  signUp: '/signUp',
+  signUp: '/SignUp',
   todo: '/',
 };
 

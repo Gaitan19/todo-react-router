@@ -5,7 +5,7 @@ import { TodoContext } from '../TodoContext'
 const Login = () => {
   return (
   <TodoContext>
-    <LoginC customClass='To-do-list'></LoginC>
+    <LoginC customClass='Login'></LoginC>
   </TodoContext>
   )
 }

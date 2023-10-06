@@ -5,7 +5,7 @@ import { TodoContext } from '../TodoContext'
 const SignUp = () => {
   return (
   <TodoContext>
-    <SignUpC customClass='To-do-list'></SignUpC>
+    <SignUpC customClass='SignMe'></SignUpC>
   </TodoContext>
   )
 }

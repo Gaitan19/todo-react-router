@@ -5,7 +5,7 @@ import Todo from '../Todo'
 const Home = () => {
   return (
     <TodoContext>
-      <Todo customClass='To-do-list'></Todo>
+        <Todo customClass='To-do-list'></Todo>
     </TodoContext>
   )
 }

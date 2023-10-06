@@ -37,7 +37,11 @@ const SignUpC = (props) => {
 
       if (status === 200) {
         alertMessage.success('Sign up successfully');
-        router(routes.login);
+        
+        setTimeout(() => {
+          
+          router(routes.login);
+        }, 2000);
       } else {
         alertMessage.error('Sign Up unsuccessfully');
       }
@@ -108,7 +112,7 @@ const SignUpC = (props) => {
       <h2 className="Format-text Format-link">
         Already have an account?
         <Link
-          href={routes.login}
+          to={routes.login}
           className={`${format}-text ${format}-link ${format}-button`}
         >
           Login Up here!

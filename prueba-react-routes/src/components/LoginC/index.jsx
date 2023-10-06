@@ -18,17 +18,12 @@ const LoginC = (props) => {
   const { setUser, validateIfUserIsLogin } = useContext(contextTodo);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLogged,setIsLogged] = useState({})
   const router = useNavigate();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user')) || {};
     validateIfUserIsLogin(user);
   }, []);
-
-  const handleNavigation = async () => {
-    await router(routes.todo);
-  }
 
   const handleSubmit = async (e) => {
 
@@ -47,20 +42,15 @@ const LoginC = (props) => {
         
         const { name, token, id } = data;
      
-        if(setUser({ name, token, id }))
-        {
-          console.log("se logeop")
-        }
-        
-        alertMessage.success('Login successfully');
-      //   let user = JSON.parse(localStorage.getItem('user'));
-      //   setIsLogged(user)
-      //  if(isLogged == {})
-      //   {console.log(isLogged)
-      //     user = JSON.parse(localStorage.getItem('user'));
-      //     console.log(user)
-      //   }
 
+        alertMessage.success('Login successfully');
+        setUser({ name, token, id });
+
+
+        setTimeout(() => {
+
+          router(routes.todo);
+        }, 2000);
 
       } else {
 

@@ -15,6 +15,10 @@ const Form = (props) => {
           alt={imageDescription}
           priority
         /> */}
+        <img
+        src={imageUrl}
+        alt={imageDescription}
+        />
         <div className="Format-container">{children}</div>
       </div>
     </form>
