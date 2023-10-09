@@ -1,8 +1,9 @@
+import { CFormSwitch } from '@coreui/react';
 import PropTypes from 'prop-types';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const SwitchMode = (props) => {
-  const { customClass, inputType, onClick, checked } = props;
+  const { customClass, onClick, checked } = props;
 
   const handleIcon = () => {
     if (checked) {
@@ -16,15 +17,7 @@ const SwitchMode = (props) => {
       className={`form-check form-switch ${customClass}-container`}
       onClick={onClick}
     >
-      <div className="Switch">
-        <input
-          className="Switch-check"
-          type={inputType}
-          checked={checked}
-          onChange={onClick}
-        />
-        <span className="Switch-slider" />
-      </div>
+      <CFormSwitch checked={checked} onclick={onClick} />
       {handleIcon()}
     </div>
   );
@@ -32,19 +25,11 @@ const SwitchMode = (props) => {
 
 SwitchMode.propTypes = {
   customClass: PropTypes.string.isRequired,
-  inputType: PropTypes.oneOf([
-    'button',
-    'checkbox',
-    'email',
-    'password',
-    'text',
-  ]),
   onClick: PropTypes.func,
   checked: PropTypes.bool,
 };
 
 SwitchMode.deafaultProps = {
-  inputType: 'checkbox',
   onclick: () => {},
   checked: false,
 };

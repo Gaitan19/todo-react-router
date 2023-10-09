@@ -9,9 +9,9 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "watch-scss": "node-sass --source-map src/styles/css --watch src/styles/scss -o src/styles/css"
-
   },
   "dependencies": {
+    "@coreui/react": "^5.0.0-alpha.3",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "node-sass": "^9.0.0",

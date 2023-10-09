@@ -2,7 +2,7 @@
     background: $dark-blue;
 
     &-container {
-        background: $teal-blue;
+        background: $teal-blue !important;
         border: 2px;
 
         &-text {
@@ -37,6 +37,10 @@
 
     &-text {
         color: $white;
+
+        &:hover {
+            color: $white;
+        }
     }
 
     &-btn {

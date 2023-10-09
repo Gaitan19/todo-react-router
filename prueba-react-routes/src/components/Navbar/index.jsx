@@ -6,6 +6,7 @@ import { contextTodo } from '../TodoContext';
 import { handleLogout } from '../../services/user';
 import { alertMessage } from '../Alert';
 import routes from '../../constants/routes';
+import { CContainer, CNavbar} from '@coreui/react';
 
 const Navbar = (props) => {
   const { customClass } = props;
@@ -22,10 +23,8 @@ const Navbar = (props) => {
         setUser({});
 
         setTimeout(() => {
-          
           router(routes.login);
         }, 500);
-        
       } else {
         alertMessage.error('Log Out unsuccess');
       }
@@ -35,8 +34,11 @@ const Navbar = (props) => {
   };
 
   return (
-    <section className={`d-flex ${customClass} `}>
-      <div className={`${customClass}-header ${containerTheme}`}>
+    <CNavbar
+      colorScheme="light"
+      className={`bg-light ${customClass} ${customClass}-header ${containerTheme}`}
+    >
+      <CContainer fluid>
         <ul className={`${customClass}-menu`}>
           <li className={`${customClass}-menu-text ${textTheme}`}>
             {user.name}
@@ -46,11 +48,12 @@ const Navbar = (props) => {
               customClass={`${customClass}-logout ${textTheme}`}
               buttonText="Logout"
               onClick={handleOnClick}
+              buttonColor="string"
             />
           </li>
         </ul>
-      </div>
-    </section>
+      </CContainer>
+    </CNavbar>
   );
 };
 

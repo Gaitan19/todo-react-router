@@ -48,7 +48,6 @@ const Todo = (props) => {
       >
         <SwitchMode
           customClass="switch-mode"
-          inputType="checkbox"
           checked={theme === 'dark'}
           onClick={toggleHandler}
         />

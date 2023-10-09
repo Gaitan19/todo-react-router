@@ -1,3 +1,4 @@
+import { CFormInput } from '@coreui/react';
 import PropTypes from 'prop-types';
 
 const Input = (props) => {
@@ -15,13 +16,19 @@ const Input = (props) => {
   return (
     <div className={customClass}>
       <label className={labelCustomClass}>{text}</label>
-      <input
+      {/* <input
         className={inputCustomClass}
         type={type}
         placeholder={placeholder}
         required={required}
         onChange={onChange}
-      />
+      /> */}
+      <CFormInput 
+        className={inputCustomClass}
+        type={type}
+        placeholder={placeholder}
+        required={required}
+        onChange={onChange}></CFormInput>
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-// import { useRouter } from 'next/router';
-// import Link from 'next/link';
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
@@ -12,6 +10,9 @@ import { handleLogin } from '../../services/user';
 import { contextTodo } from '../TodoContext';
 import { alertMessage } from '../Alert';
 import routes from '../../constants/routes';
+
+
+
 
 const LoginC = (props) => {
   const { customClass, format } = props;
@@ -25,11 +26,11 @@ const LoginC = (props) => {
     validateIfUserIsLogin(user);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
 
     try {
 
-      e.preventDefault();
+      event.preventDefault();
 
       const credentials = {
         email,

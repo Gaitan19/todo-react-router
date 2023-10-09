@@ -24,9 +24,9 @@ const SignUpC = (props) => {
     validateIfUserIsLogin(user);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
     try {
-      e.preventDefault();
+      event.preventDefault();
       const credentials = {
         email,
         name,
