@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-// import Head from 'next/head';
-
 
 const HeadPage = (props) => {
   const { title } = props;

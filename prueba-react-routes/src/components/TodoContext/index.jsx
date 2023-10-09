@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import routes from '../../constants/routes';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const contextTodo = createContext();
@@ -22,20 +21,9 @@ const TodoContext = (props) => {
       router(routes.todo);
     } else {
       if (location.pathname === routes.signUp) {
-
-        setTimeout(() => {
-
-          router(routes.signUp);
-        }, 500);
-
+        router(routes.signUp);
       } else {
-
-
-        setTimeout(() => {
-
-          router(routes.login);
-        }, 500);
-        
+        router(routes.login);
       }
     }
 

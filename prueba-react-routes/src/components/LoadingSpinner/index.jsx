@@ -1,4 +1,3 @@
-
 const LoadingSpinner = () => {
   return (
     <div className="loading-spinner">

@@ -1,13 +1,12 @@
-import React from 'react'
-import SignUpC from '../SignUpC'
-import { TodoContext } from '../TodoContext'
+import SignUpC from '../SignUpC';
+import { TodoContext } from '../TodoContext';
 
 const SignUp = () => {
   return (
-  <TodoContext>
-    <SignUpC customClass='SignMe'></SignUpC>
-  </TodoContext>
-  )
-}
+    <TodoContext>
+      <SignUpC customClass="SignMe"></SignUpC>
+    </TodoContext>
+  );
+};
 
-export default SignUp
+export default SignUp;

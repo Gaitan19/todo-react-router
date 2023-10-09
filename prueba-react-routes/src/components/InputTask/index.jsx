@@ -28,7 +28,7 @@ const InputTask = (props) => {
         const { data, status } = await handlePostTodo(
           user.id,
           user.token,
-          task,
+          task
         );
         if (status === 200) {
           const tempTask = [...todo, data];

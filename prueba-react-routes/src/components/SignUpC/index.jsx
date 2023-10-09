@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-// import { useRouter } from 'next/router';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { contextTodo } from '../TodoContext';
 import Form from '../Form';
@@ -16,6 +15,7 @@ const SignUpC = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [userHasSingedUp, setUserHasSingedUp] = useState(false);
   const router = useNavigate();
   const { validateIfUserIsLogin } = useContext(contextTodo);
 
@@ -23,6 +23,12 @@ const SignUpC = (props) => {
     const user = JSON.parse(localStorage.getItem('user')) || {};
     validateIfUserIsLogin(user);
   }, []);
+
+  useEffect(() => {
+    if (userHasSingedUp) {
+      router(routes.login);
+    }
+  }, [userHasSingedUp]);
 
   const handleSubmit = async (event) => {
     try {
@@ -36,12 +42,9 @@ const SignUpC = (props) => {
       const { status } = await handleRegister(credentials);
 
       if (status === 200) {
-        alertMessage.success('Sign up successfully');
-        
-        setTimeout(() => {
-          
-          router(routes.login);
-        }, 2000);
+        await alertMessage.success('Sign up successfully');
+
+        setUserHasSingedUp(true);
       } else {
         alertMessage.error('Sign Up unsuccessfully');
       }

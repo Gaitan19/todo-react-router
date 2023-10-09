@@ -1,12 +1,23 @@
 import PropTypes from 'prop-types';
 import { CButton } from '@coreui/react';
 
-
 const Button = (props) => {
-  const { customClass, buttonText, buttonType, children, onClick ,buttonColor} = props;
+  const {
+    customClass,
+    buttonText,
+    buttonType,
+    children,
+    onClick,
+    buttonColor,
+  } = props;
 
   return (
-    <CButton className={customClass} type={buttonType} onClick={onClick} color={buttonColor}>
+    <CButton
+      className={customClass}
+      type={buttonType}
+      onClick={onClick}
+      color={buttonColor}
+    >
       {buttonText}
       {children}
     </CButton>
@@ -19,7 +30,7 @@ Button.propTypes = {
   buttonType: PropTypes.oneOf(['button', 'reset', 'submit']),
   buttonText: PropTypes.string,
   children: PropTypes.node,
-  buttonColor: PropTypes.string
+  buttonColor: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -27,7 +38,7 @@ Button.defaultProps = {
   onClick: () => {},
   buttonType: 'button',
   children: <></>,
-  buttonColor: 'primary'
+  buttonColor: 'primary',
 };
 
 export default Button;

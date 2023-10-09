@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import Form from '../Form';
@@ -11,12 +11,10 @@ import { contextTodo } from '../TodoContext';
 import { alertMessage } from '../Alert';
 import routes from '../../constants/routes';
 
-
-
-
 const LoginC = (props) => {
   const { customClass, format } = props;
   const { setUser, validateIfUserIsLogin } = useContext(contextTodo);
+  const [userHasLoggedIn, setUserHasLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useNavigate();
@@ -26,10 +24,14 @@ const LoginC = (props) => {
     validateIfUserIsLogin(user);
   }, []);
 
+  useEffect(() => {
+    if (userHasLoggedIn) {
+      router(routes.todo);
+    }
+  }, [userHasLoggedIn]);
+
   const handleSubmit = async (event) => {
-
     try {
-
       event.preventDefault();
 
       const credentials = {
@@ -40,22 +42,12 @@ const LoginC = (props) => {
       const { data, status } = await handleLogin(credentials);
 
       if (status === 200) {
-        
         const { name, token, id } = data;
-     
 
-        alertMessage.success('Login successfully');
+        await alertMessage.success('Login successfully');
         setUser({ name, token, id });
-
-
-        setTimeout(() => {
-
-          router(routes.todo);
-        }, 500);
-
+        setUserHasLoggedIn(true);
       } else {
-
-
         alertMessage.error('Failed to login');
       }
     } catch ({ response: { data: { message } = {} } = {} }) {

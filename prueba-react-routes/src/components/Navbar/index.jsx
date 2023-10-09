@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from '../Button';
 import { useNavigate } from 'react-router-dom';
 import { contextTodo } from '../TodoContext';
 import { handleLogout } from '../../services/user';
 import { alertMessage } from '../Alert';
 import routes from '../../constants/routes';
-import { CContainer, CNavbar} from '@coreui/react';
+import { CContainer, CNavbar } from '@coreui/react';
 
 const Navbar = (props) => {
   const { customClass } = props;
   const { theme, user, setUser } = useContext(contextTodo);
+  const [userHasLoggedOut, setUserHasLoggedOut] = useState(false);
   const router = useNavigate();
   const containerTheme = theme === 'dark' && 'dark-mode-container';
   const textTheme = theme === 'dark' && 'dark-mode-text';
+
+  useEffect(() => {
+    if (userHasLoggedOut) {
+      router(routes.login);
+    }
+  }, [userHasLoggedOut]);
 
   const handleOnClick = async () => {
     try {
@@ -21,10 +28,7 @@ const Navbar = (props) => {
       if (status === 200) {
         alertMessage.success('Log Out successfully');
         setUser({});
-
-        setTimeout(() => {
-          router(routes.login);
-        }, 500);
+        setUserHasLoggedOut(true);
       } else {
         alertMessage.error('Log Out unsuccess');
       }

@@ -55,12 +55,12 @@ const Task = (props) => {
           user.id,
           user.token,
           idTask,
-          postData,
+          postData
         );
         if (status === 200) {
           setEditing((prevEditing) => !prevEditing);
           const updatedTasks = todo.map((task) =>
-            task.id === idTask ? { ...task, description: updateTask } : task,
+            task.id === idTask ? { ...task, description: updateTask } : task
           );
           setTodo(updatedTasks);
           alertMessage.success('Task edited successfully');
@@ -89,11 +89,11 @@ const Task = (props) => {
         user.id,
         user.token,
         idTask,
-        postData,
+        postData
       );
       if (status === 200) {
         const updatedTasks = todo.map((task) =>
-          task.id === idTask ? { ...task, completed: !iscompleted } : task,
+          task.id === idTask ? { ...task, completed: !iscompleted } : task
         );
         setTodo(updatedTasks);
         alertMessage.success('Task status change successfully');

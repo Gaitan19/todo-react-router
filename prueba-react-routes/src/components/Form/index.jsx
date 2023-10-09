@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-// import Image from 'next/image';
- 
 
 const Form = (props) => {
   const { children, customClass, imageUrl, imageDescription, onSubmit } = props;
@@ -8,11 +6,7 @@ const Form = (props) => {
   return (
     <form className="d-flex justify-content-center" onSubmit={onSubmit}>
       <div className={customClass}>
-       
-        <img
-        src={imageUrl}
-        alt={imageDescription}
-        />
+        <img src={imageUrl} alt={imageDescription} />
         <div className="Format-container">{children}</div>
       </div>
     </form>
